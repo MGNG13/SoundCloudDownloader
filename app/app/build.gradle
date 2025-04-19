@@ -1,0 +1,46 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+android {
+    namespace 'com.mftechnologydevelopment.soundglouddownloader'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.mftechnologydevelopment.soundglouddownloader"
+        minSdk 26
+        targetSdk 34
+        versionCode 3
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    implementation libs.play.integrity
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.crashlytics
+    implementation libs.google.firebase.analytics
+    implementation libs.okhttp
+    implementation libs.glide
+    implementation project(':library')
+    annotationProcessor libs.compiler
+    implementation libs.play.services.ads
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

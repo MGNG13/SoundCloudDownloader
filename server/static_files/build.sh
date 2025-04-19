@@ -1,0 +1,1 @@
+rm -rf static_files && cargo build && mv target/debug/static_files ./ && chmod +x static_files
